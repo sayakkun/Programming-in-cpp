@@ -76,6 +76,8 @@ void LinkedList::insert_at_beginning(int data)
 	curr->next=head;
 	head=curr;
 	//implmentation of singly linked list
+	//curr cannot be freed
+	//as it is assigned as a node in linked list
 }
 void LinkedList::insert_at_end(int data)
 {
@@ -95,6 +97,15 @@ void LinkedList::insert_at_end(int data)
 	}
 	index_node->next=curr;
 	//this is done	
+	//Now, index_node is not freed
+	//why?
+	//because, it has not it's own memory allocated from heap
+	//hence, it will not cause memory leak
+	//it is allocated from stack memory
+	//will be freed when the function insert_at_end ends
+	//but this pointer points to some memory location (since, it is alias to some pointer whose memory is allocated dynamically)
+	//so, freeing it would actually free that memory, which will cause problem in current context
+	//that is what I can explain from my knowledge
 }	
 void LinkedList::display_linked_list()
 {
