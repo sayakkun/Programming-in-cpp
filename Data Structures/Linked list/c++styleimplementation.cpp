@@ -22,7 +22,7 @@ class LinkedList
 		LinkedList();
 		void insert_at_beginning(int);
 		void insert_at_end(int);
-		void display_linked_list();
+		void display_linked_list() const;
 		~LinkedList();
 };
 //friend Node LinkedList;
@@ -107,7 +107,7 @@ void LinkedList::insert_at_end(int data)
 	//so, freeing it would actually free that memory, which will cause problem in current context
 	//that is what I can explain from my knowledge
 }	
-void LinkedList::display_linked_list()
+void LinkedList::display_linked_list()const
 {
 	printf("The linkedlist is: ");
 	Node *index_node=head;
